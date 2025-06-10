@@ -1,0 +1,183 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>  
+<meta charset="UTF-8">  
+<title>Форма заповнення</title>
+
+<style>
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+background-color: rgb(167, 215, 197);
+font-family: "Consolas";
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+
+.CubeOne, .CubeTwo {
+position: fixed;
+width: 45vw;
+height: 90vh;
+background-color: rgb(193, 227, 214);
+border-radius: 100px;
+transform: rotate(45deg);
+}
+
+.CubeOne {
+right: 65%;
+bottom: 45%;
+}
+
+.CubeTwo {
+left: 65%;
+top: 50%;
+}
+
+.SignBg {
+background-color: rgb(245, 245, 245);
+width: 90vw;
+max-width: 600px;
+min-height: 75vh;
+padding: 60px 30px;
+border-radius: 50px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+z-index: 1;
+}
+
+.HeaderSection {
+  text-align: center;
+  margin-bottom: 60px; 
+}
+
+.AccCreate {
+font-size: 2.7rem;
+color: rgb(20, 20, 20);
+}
+
+.Stext {
+margin-top: 5px;
+font-size: 1rem;
+color: rgb(50, 50, 50);
+}
+
+.InputSection {
+display: flex;
+flex-direction: column;
+gap: 16px;
+margin-bottom: 30px;
+width: 100%;
+align-items: center;
+}
+
+.InfoInput {
+width: 100%;
+max-width: 400px;
+height: 60px;
+padding: 12px 18px;
+font-size: 17px;
+border-radius: 10px;
+border: 2px solid rgb(210, 210, 210);
+color: rgb(150, 150, 150);
+background-color: rgb(255, 255, 255);
+}
+
+.ActionSection {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 15px;
+}
+
+.CreateButton {
+background-color: rgb(132, 199, 157);
+width: 100%;
+max-width: 300px;
+height: 60px;
+border-radius: 20px;
+font-size: 1.4rem;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+}
+
+.SignInText {
+font-size: 1.1rem;
+color: rgb(50, 50, 50);
+text-align: center;
+}
+
+@media (max-width: 500px) {
+.AccCreate {
+font-size: 1.5rem;
+}
+
+.CreateButton {
+font-size: 1rem;
+}
+
+.InfoInput {
+height: 45px;
+}
+}
+
+</style>
+</head>
+
+<body>
+  <div class="CubeOne"></div>
+  <div class="CubeTwo"></div>
+
+  <div class="SignBg">
+    <div class="HeaderSection">
+      <div class="AccCreate"><b>Create An Account</b></div>
+      <div class="Stext">Create an account to enjoy all the services <br> without any ads for free!</div>
+    </div>
+
+    <div class="InputSection">
+      <input type="email" class="InfoInput" placeholder="Email Address" id="emailInput">
+      <input type="password" class="InfoInput" placeholder="Password" id="passwordInput">
+    </div>
+
+    <div class="ActionSection">
+      <div class="CreateButton" id="createBtn"><b>Create Account</b></div>
+      <div class="SignInText">Already have an account? <u> Sign in </u> </div>
+    </div>
+  </div>
+
+<script>
+  function EmailCheck(email) {
+    return email.includes("@gmail.com");
+  }
+
+  document.getElementById('createBtn').addEventListener('click', function() {
+    const email = document.getElementById('emailInput').value.trim();
+    const password = document.getElementById('passwordInput').value.trim();
+
+    if (!EmailCheck(email)) {
+      alert('Будь ласка введіть електронну пошту коректно.');
+      return;
+    }
+
+    if (password == '') {
+      alert('Будь ласка введіть пароль.');
+      return;
+    }
+
+    alert('Ви успішно створили аккаунт');
+  });
+</script>
+
+</body>
+</html>
